@@ -1,8 +1,8 @@
-var listBody = document.getElementsByTagName('li');
-listBody = listBody.filter(function(item){
-    return item.parentElement.tagName != 'a' || item.class != 'dropdown';
-});
+var listBody = document.getElementsByClassName('item');
+
 var close = [];
+
+console.log(listBody[0]);
 
 // closing button adding function
 function closeButton(item) {
@@ -21,12 +21,11 @@ function closeFunction(item) {
 }
 
 // toggles the 'done' class when you click an item
-var list = document.querySelector('ul');
-list.addEventListener('click', function (ev) {
-    if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('done');
-    }
-}, false);
+for(var i = 0; i < listBody.length; i++) {
+    listBody[i].addEventListener('click', function() {
+        this.classList.toggle('done');
+    });
+}
 
 // add new item to the list
 function addItem() {
